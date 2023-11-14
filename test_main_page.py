@@ -16,3 +16,32 @@ def test_guest_should_see_login_link(browser):
     page.open()
     page.should_be_login_link()
 
+# def test_should_be_auth_login_input(browser):
+#     link = "https://selenium1py.pythonanywhere.com/ru/accounts/login/"
+#     page = MainPage(browser, link)
+#     page.open()
+#     page.should_be_login_link()
+
+# def test_should_be_auth_email_input(browser):
+#     link = "https://selenium1py.pythonanywhere.com/ru/accounts/login/"
+#     page = MainPage(browser, link)
+#     page.open()
+#     page.should_be_login_link()
+
+# def test_should_be_reg_email_input(browser):
+#     link = "https://selenium1py.pythonanywhere.com/ru/accounts/login/"
+#     page = MainPage(browser, link)
+#     page.open()
+#     page.should_be_login_link()
+
+# def test_should_be_reg_pass_input(browser):
+#     link = "https://selenium1py.pythonanywhere.com/ru/accounts/login/"
+#     page = MainPage(browser, link)
+#     page.open()
+#     page.should_be_login_link()
+
+# def test_should_be_ref_pass_repeat_input(browser):
+#     link = "https://selenium1py.pythonanywhere.com/ru/accounts/login/"
+#     page = MainPage(browser, link)
+#     page.open()
+#     page.should_be_login_link()
