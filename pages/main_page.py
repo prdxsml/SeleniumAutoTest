@@ -1,9 +1,12 @@
-# Из-за разницы в пакетах импорт может работать с точкой или без
 from .base_page import BasePage
-# Предка указали в скобках
-class MainPage(BasePage):
+from selenium.webdriver.common.by import By
+
+class MainPage(BasePage): 
     def go_to_login_page(self):
-    # Если верстка изменится, то заменить селектор потребуется только в одном месте
-    # Обращаемся к методу класса BasePage, где хранится browser
-    login_link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
-    login_link.click()
+        login_link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
+        login_link.click()
+
+    def should_be_login_link(self):
+        # Хорошая практика сначала делать тест красным, а потом зеленым. Ниже селектор
+        # намеренно сделан неправильно
+        assert self.is_element_present(By.CSS_SELECTOR, "#login_link"), "Login link is not presented"
