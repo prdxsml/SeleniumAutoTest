@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium import webdriver
 
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
@@ -9,5 +10,5 @@ class LoginPageLocators():
     PASSWORD_AUTH_INPUT = (By.CSS_SELECTOR, '#id_login-password')
     FORM_REG_CHECK = (By.CSS_SELECTOR, '#register_form')
     EMAIL_REGISTRATION_INPUT = (By.CSS_SELECTOR, '#id_registration-email')
-    PASSWORD_REGISTRATION_INPUT = (By.CSS_SELECTOR, '#id_registration-password1')
-    PASSWORD_REGISTRATION_REPEAT_INPUT = (By.CSS_SELECTOR, '#id_registration-password2')
+    PASSWORD_REGISTRATION_INPUT = (By.CSS_SELECTOR, '#id_registration-password')
+    PASSWORD_REGISTRATION_REPEAT_INPUT = (By.CSS_SELECTOR, '#id_registration-password')
