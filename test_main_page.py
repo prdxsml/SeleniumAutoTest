@@ -1,7 +1,8 @@
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 
-# ! Страница для добавления тестов.
+# ! Страница для добавления тестов. Соотносится со страницей: main_page.py
+# ! По этому же примеру оформляются другие тесты для страниц: ***_page.py == test_***_page.py
 
 
 def test_guest_can_go_to_login_page(browser):

@@ -5,6 +5,8 @@ from .locators import LoginPageLocators
 
 from selenium.webdriver.common.by import By
 
+# ! Страница для определения классов
+
 
 class MainPage(BasePage): 
     def go_to_login_page(self):
