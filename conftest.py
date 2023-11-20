@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-# Реализация фикстур в проекте
+#! Реализация фикстур в проекте
 
 def pytest_addoption(parser):
     # Выбор браузера для теста

@@ -1,11 +1,10 @@
 from .base_page import BasePage
-from .login_page import LoginPage
 from .locators import MainPageLocators
-from .locators import LoginPageLocators
+
 
 from selenium.webdriver.common.by import By
 
-# ! Страница для определения классов
+# ! Страница для определения классов. Классы наследюуюся от BasePage.
 
 
 class MainPage(BasePage): 
