@@ -20,3 +20,4 @@ class MainPage(BasePage):
         # намеренно сделан неправильно
         # Символ * - указывает на то, что мы передали именно пару и этот кортеж надо распаковать
         assert self.current_url(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
+    

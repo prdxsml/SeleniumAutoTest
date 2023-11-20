@@ -1,9 +1,8 @@
 from .base_page import BasePage
-# from .locators import MainPageLocators
+from .locators import MainPageLocators
 from .locators import LoginPageLocators
 
-# 
-
+# ! Реализация методов проверок
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
@@ -16,7 +15,9 @@ class LoginPage(BasePage):
         # assert "login" in self.current_url, 'сообщение об ошибке'
         # assert self.is_element_present(*LoginPageLocators.FORM_AUTH_CHECK), "Login link is not presented"
         # assert True - просто заглушка
-        assert "login" in self.current_url, 'сообщение об ошибке'
+        assert "login" in self.url, 'сообщение об ошибке'
+        # assert "login" in self.current_url(*LoginPageLocators.URL_LINK), "Login link is not presented"
+
 
     def should_be_login_form(self):
         # реализуйте проверку, что есть форма логина

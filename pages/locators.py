@@ -8,6 +8,7 @@ class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
 
 class LoginPageLocators():
+    URL_LINK = 'login'
     #? Чекаем существование формы логина, именно формы, а не полей
     # ? Сначала пишем красные тесты, чтобы проверки падали, затем проверяем зелеными тестами
     FORM_AUTH_CHECK = (By.CSS_SELECTOR, '#login_form')
