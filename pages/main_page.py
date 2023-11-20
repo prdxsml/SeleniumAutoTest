@@ -18,4 +18,4 @@ class MainPage(BasePage):
         # Хорошая практика сначала делать тест красным, а потом зеленым. Ниже селектор
         # намеренно сделан неправильно
         # Символ * - указывает на то, что мы передали именно пару и этот кортеж надо распаковать
-        assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
+        assert self.current_url(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
