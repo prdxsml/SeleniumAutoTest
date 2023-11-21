@@ -7,7 +7,7 @@ import math
 
 class BasePage():
     # Добавляем метод-конструтор. Передаем в него экземпляр драйвера и url-адрес
-    def __init__(self, browser, url, timeout=10):
+    def __init__(self, browser, url, timeout=20):
         self.browser = browser
         self.url = url
         self.browser.implicitly_wait(timeout)
@@ -35,4 +35,3 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-        return True

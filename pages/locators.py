@@ -20,4 +20,4 @@ class Basket():
     # Цена товара на страницеж
     PRICE = (By.CLASS_NAME, 'price_color')
     BUTTON = (By.CLASS_NAME, 'btn.btn-lg.btn-primary.btn-add-to-basket')
-    
+    ITEM_ADD_TO_BASKET = (By.CLASS_NAME, 'alert.alert-safe.alert-noicon.alert-success.fade in')
