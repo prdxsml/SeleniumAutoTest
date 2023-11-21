@@ -24,6 +24,8 @@ def test_click_on_button(browser):
     page.item_on_basket()
 
 
+    # ? Дописать проверку цены
+    # ? Дописать проверку названия товара
 # def test_item_on_basket(browser):
 #     link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
 #     page = ProductPage(browser, link)
