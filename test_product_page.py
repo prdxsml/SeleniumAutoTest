@@ -20,12 +20,14 @@ def test_click_on_button(browser):
     page = ProductPage(browser, link)
     page.open()
     page.click_on_button()
-
-
-def test_item_on_basket(browser):
-    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-    page = ProductPage(browser, link)
-    page.open()
+    time.sleep(10)
     page.item_on_basket()
+
+
+# def test_item_on_basket(browser):
+#     link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+#     page = ProductPage(browser, link)
+#     page.open()
+#     page.item_on_basket()
 
 
