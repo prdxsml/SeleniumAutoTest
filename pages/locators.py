@@ -14,3 +14,10 @@ class LoginPageLocators():
     FORM_AUTH_CHECK = (By.CSS_SELECTOR, '#login_form')
     #? Чекаем существование формы регистрации, именно формы, а не полей
     FORM_REG_CHECK = (By.CSS_SELECTOR, '#register_form')
+
+
+class Basket():
+    # Цена товара на страницеж
+    PRICE = (By.CLASS_NAME, 'price_color')
+    BUTTON = (By.CLASS_NAME, 'btn.btn-lg.btn-primary.btn-add-to-basket')
+    
