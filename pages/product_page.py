@@ -47,3 +47,25 @@ class ProductPage(BasePage):
         item_price = item_price_el.text
 
         assert basket_item_price == item_price, 'Ошибка нахуй'
+
+    def what_in_title_and_price(self):
+        #? Функция показывает что лежит в заголовке / Работает
+        x = self.browser.find_element(*Basket.TITLE_TOVARA)
+        x_text = x.text
+        print('x_text', x_text)
+
+        #? Функция показывает что лежит в цене / Работает
+        y = self.browser.find_element(*Basket.PRICE_ADD_TO_BASKET)
+        y_text = y.text
+        print('y_text', y_text)
+
+        # Функция поиска тайтла в бредкрамбах / Работает / Не используем
+        z = self.browser.find_element(*Basket.BREADCRAMB_TITLE)
+        z_text = z.text
+        print('z_text', z_text)
+
+        #? Функция показывает, что лежит в месаге о добавлении товара / Работает
+        m = self.browser.find_element(*Basket.ITEM_ADD_TO_BASKE_NEW)
+        m_text = m.text
+        print('m_text', m_text)
+
