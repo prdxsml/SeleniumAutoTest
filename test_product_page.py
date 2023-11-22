@@ -55,7 +55,8 @@ def test_what_in_title_and_price(browser):
     page.open()
     page.click_on_button()
     time.sleep(10)
-    page.what_in_title_and_price()
+    # page.what_in_title_and_price()
+    page.title_equally_title_on_message()
 
 
     # ? Дописать проверку цены

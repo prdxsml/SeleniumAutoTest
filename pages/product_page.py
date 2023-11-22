@@ -50,22 +50,34 @@ class ProductPage(BasePage):
 
     def what_in_title_and_price(self):
         #? Функция показывает что лежит в заголовке / Работает
-        x = self.browser.find_element(*Basket.TITLE_TOVARA)
-        x_text = x.text
-        print('x_text', x_text)
+        # x = self.browser.find_element(*Basket.TITLE_TOVARA)
+        # x_text = x.text
+        # print('x_text', x_text)
 
         #? Функция показывает что лежит в цене / Работает
-        y = self.browser.find_element(*Basket.PRICE_ADD_TO_BASKET)
-        y_text = y.text
-        print('y_text', y_text)
+        # y = self.browser.find_element(*Basket.PRICE_ADD_TO_BASKET)
+        # y_text = y.text
+        # print('y_text', y_text)
 
         # Функция поиска тайтла в бредкрамбах / Работает / Не используем
-        z = self.browser.find_element(*Basket.BREADCRAMB_TITLE)
-        z_text = z.text
-        print('z_text', z_text)
+        # z = self.browser.find_element(*Basket.BREADCRAMB_TITLE)
+        # z_text = z.text
+        # print('z_text', z_text)
 
         #? Функция показывает, что лежит в месаге о добавлении товара / Работает
         m = self.browser.find_element(*Basket.ITEM_ADD_TO_BASKE_NEW)
         m_text = m.text
         print('m_text', m_text)
 
+    def title_equally_title_on_message(self):
+        # 1. Основной тайтл для сравнения
+        x = self.browser.find_element(*Basket.TITLE_TOVARA)
+        x_text = x.text
+        print('===x_text===', x_text)
+        # 2. Тайтл из всплывающего сообщения, после добавления в корзину
+        m = self.browser.find_element(*Basket.ITEM_ADD_TO_BASKE_NEW)
+        m_text = m.text
+        print('===m_text===', m_text)
+        # 3. Функция проверки двух тайтлов
+        assert x_text == m_text, "Не совпадают"
+        print ('Совпадают', x_text == m_text)
