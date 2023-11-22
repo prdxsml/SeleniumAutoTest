@@ -37,3 +37,13 @@ class ProductPage(BasePage):
     def should_be_basket_url(self):
         assert "basket" in self.url, 'сообщение об ошибке'
 
+    def basket_all_price(self):
+        assert self.is_element_present(*Basket.BASKET_ITEM_PRICE), 'Элемент корзиночной цены проебан'
+        assert self.is_element_present(*Basket.ITEM_PRICE), 'Элемент цены товара проебан'
+
+        basket_item_price_el = self.browser.find_element(*Basket.BASKET_ITEM_PRICE)
+        item_price_el = self.browser.find_element(*Basket.ITEM_PRICE)
+        basket_item_price = basket_item_price_el.text
+        item_price = item_price_el.text
+
+        assert basket_item_price == item_price, 'Ошибка нахуй'

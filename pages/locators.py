@@ -33,11 +33,13 @@ class Basket():
     # Тайтл названия товара
     TITLE_ITEM = (By.CSS_SELECTOR, '#default > div.container-fluid.page > div > ul > li.active')
     
-    # Цена товара в сообщении
+    # Цена товара в сообщении / В текущей реализации проверяется только его существование
     PRICE_ON_BASKET = (By.CLASS_NAME, 'col-sm-3.price_color.align-right')
     
-    # Цена товара на странице товара
+    # Цена товара на странице товара / В текущей реализации проверяется только его существование
     MAIN_PRICE = (By.CSS_SELECTOR, '#content_inner > article > div.row > div.col-sm-6.product_main > p.price_color')
     
     # Линк на страницу с корзиной
     BASKET_LINK = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a')
+    BASKET_ITEM_PRICE = (By.CLASS_NAME, 'total.align-right')
+    ITEM_PRICE = (By.CLASS_NAME, 'price_color.align-right')
