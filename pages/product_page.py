@@ -81,3 +81,21 @@ class ProductPage(BasePage):
         # 3. Функция проверки двух тайтлов
         assert x_text == m_text, "Не совпадают"
         print ('Совпадают', x_text == m_text)
+
+    def price_equally_price_on_basket(self):
+        # Цена на странице товара
+        ppp = self.browser.find_element(*Basket.MAIN_PRICE)
+        ppp_text = ppp.text
+        print('ppp_text', ppp_text)
+
+        bpp = self.browser.find_element(*Basket.BASKET_ON_PPP)
+        bpp_text = bpp.text
+        print('bpp_text', bpp_text)
+
+        assert ppp_text in bpp_text, 'Не совпадают'
+        
+        if f'{ppp_text}' in bpp_text:
+            print('Найдено и совпадает')
+
+        # assert ppp == bpp, "Не совпадают"
+        # print('Совпадают', ppp_text == bpp_text)

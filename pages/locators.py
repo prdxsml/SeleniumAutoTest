@@ -36,13 +36,16 @@ class Basket():
     # Цена товара в сообщении / В текущей реализации проверяется только его существование
     PRICE_ON_BASKET = (By.CLASS_NAME, 'col-sm-3.price_color.align-right')
     
-    # Цена товара на странице товара / В текущей реализации проверяется только его существование
+    #! Цена товара на странице товара / В текущей реализации проверяется только его существование
     MAIN_PRICE = (By.CSS_SELECTOR, '#content_inner > article > div.row > div.col-sm-6.product_main > p.price_color')
     
     # Линк на страницу с корзиной
     BASKET_LINK = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a')
     BASKET_ITEM_PRICE = (By.CLASS_NAME, 'total.align-right')
     ITEM_PRICE = (By.CLASS_NAME, 'price_color.align-right')
+    
+    #! Цена товара в корзине
+    BASKET_PRICE_ITEM = (By.XPATH, '//*[@id="basket_formset"]/div/div/div[4]/p')
 
     #! Определяем элемент, откуда будем брать заголовки для всех товаров. Основной тайтл h1 на странице товара
     TITLE_TOVARA = (By.CSS_SELECTOR, '#content_inner > article > div.row > div.col-sm-6.product_main > h1')
@@ -55,6 +58,8 @@ class Basket():
 
     # Элемент корзины в шапке, будем сравнивать с ним цену корзины / Пауза
 
-
-    # Сообщение о добавлении товара с тайтлом
+    #! Сообщение о добавлении товара с тайтлом
     ITEM_ADD_TO_BASKE_NEW = (By.CSS_SELECTOR, '#messages > div:nth-child(1) > div > strong')
+
+    #
+    BASKET_ON_PPP = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs')

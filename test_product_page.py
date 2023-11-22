@@ -57,8 +57,12 @@ def test_what_in_title_and_price(browser):
     time.sleep(10)
     # page.what_in_title_and_price()
     page.title_equally_title_on_message()
-
-
+    page.price_equally_price_on_basket()
+    # page.basket_link()
+    # basket_page = ProductPage(browser, browser.current_url)
+    # basket_page.should_be_basket_url()
+    # basket_page.price_equally_price_on_basket()
+    
     # ? Дописать проверку цены
     # ? Дописать проверку названия товара
 
