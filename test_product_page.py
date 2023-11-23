@@ -50,7 +50,7 @@ import time
 #     basket_page.basket_all_price()
 
 def test_what_in_title_and_price(browser):
-    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
     page = ProductPage(browser, link)
     page.open()
     page.click_on_button()
@@ -62,8 +62,5 @@ def test_what_in_title_and_price(browser):
     # basket_page = ProductPage(browser, browser.current_url)
     # basket_page.should_be_basket_url()
     # basket_page.price_equally_price_on_basket()
-    
-    # ? Дописать проверку цены
-    # ? Дописать проверку названия товара
 
 

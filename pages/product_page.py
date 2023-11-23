@@ -37,16 +37,16 @@ class ProductPage(BasePage):
     def should_be_basket_url(self):
         assert "basket" in self.url, 'сообщение об ошибке'
 
-    def basket_all_price(self):
-        assert self.is_element_present(*Basket.BASKET_ITEM_PRICE), 'Элемент корзиночной цены проебан'
-        assert self.is_element_present(*Basket.ITEM_PRICE), 'Элемент цены товара проебан'
+    # def basket_all_price(self):
+    #     assert self.is_element_present(*Basket.BASKET_ITEM_PRICE), 'Элемент корзиночной цены проебан'
+    #     assert self.is_element_present(*Basket.ITEM_PRICE), 'Элемент цены товара проебан'
 
-        basket_item_price_el = self.browser.find_element(*Basket.BASKET_ITEM_PRICE)
-        item_price_el = self.browser.find_element(*Basket.ITEM_PRICE)
-        basket_item_price = basket_item_price_el.text
-        item_price = item_price_el.text
+    #     basket_item_price_el = self.browser.find_element(*Basket.BASKET_ITEM_PRICE)
+    #     item_price_el = self.browser.find_element(*Basket.ITEM_PRICE)
+    #     basket_item_price = basket_item_price_el.text
+    #     item_price = item_price_el.text
 
-        assert basket_item_price == item_price, 'Ошибка нахуй'
+    #     assert basket_item_price == item_price, 'Ошибка нахуй'
 
     def what_in_title_and_price(self):
         #? Функция показывает что лежит в заголовке / Работает
@@ -71,31 +71,27 @@ class ProductPage(BasePage):
 
     def title_equally_title_on_message(self):
         # 1. Основной тайтл для сравнения
-        x = self.browser.find_element(*Basket.TITLE_TOVARA)
-        x_text = x.text
-        print('===x_text===', x_text)
+        product_page_title = self.browser.find_element(*Basket.TITLE_TOVARA)
+        product_page_title_text = product_page_title.text
+        print('Тайтл на странице товара:', product_page_title_text)
         # 2. Тайтл из всплывающего сообщения, после добавления в корзину
-        m = self.browser.find_element(*Basket.ITEM_ADD_TO_BASKE_NEW)
-        m_text = m.text
-        print('===m_text===', m_text)
+        product_message_title = self.browser.find_element(*Basket.ITEM_ADD_TO_BASKE_NEW)
+        product_message_title_text = product_message_title.text
+        print('Тайтл на сообщении о добавлении в корзину:', product_message_title_text)
         # 3. Функция проверки двух тайтлов
-        assert x_text == m_text, "Не совпадают"
-        print ('Совпадают', x_text == m_text)
+        assert product_page_title_text == product_message_title_text, "Тайтлы на странице и в корзине: НЕ СОВПАДАЮТ"
+        print ('Тайтлы на странице и в корзине: СОВПАДАЮТ', product_page_title_text == product_message_title_text)
 
     def price_equally_price_on_basket(self):
         # Цена на странице товара
-        ppp = self.browser.find_element(*Basket.MAIN_PRICE)
-        ppp_text = ppp.text
-        print('ppp_text', ppp_text)
-
-        bpp = self.browser.find_element(*Basket.BASKET_ON_PPP)
-        bpp_text = bpp.text
-        print('bpp_text', bpp_text)
-
-        assert ppp_text in bpp_text, 'Не совпадают'
-        
-        if f'{ppp_text}' in bpp_text:
-            print('Найдено и совпадает')
-
-        # assert ppp == bpp, "Не совпадают"
-        # print('Совпадают', ppp_text == bpp_text)
+        product_page_price = self.browser.find_element(*Basket.MAIN_PRICE)
+        product_page_price_text = product_page_price.text
+        print('Цена товара на странице продукта:', product_page_price_text)
+        # Цена товара в корзине
+        basket_page_price = self.browser.find_element(*Basket.BASKET_ON_PPP)
+        basket_page_price_text = basket_page_price.text
+        print('Цена товара в корзине:', basket_page_price_text)
+        # Сравнение цен на странице товара и в корзине
+        assert product_page_price_text in basket_page_price_text, 'Цена товара на странице продукта и корзине: НЕ СОВПАДАЮТ'
+        if f'{product_page_price_text}' in basket_page_price_text:
+            print('Цена товара на странице продукта и корзине: СОВПАДАЮТ')
