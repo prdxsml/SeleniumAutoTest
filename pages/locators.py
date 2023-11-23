@@ -40,9 +40,9 @@ class Basket():
     MAIN_PRICE = (By.CSS_SELECTOR, '#content_inner > article > div.row > div.col-sm-6.product_main > p.price_color')
     
     # Линк на страницу с корзиной
-    BASKET_LINK = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a')
-    BASKET_ITEM_PRICE = (By.CLASS_NAME, 'total.align-right')
-    ITEM_PRICE = (By.CLASS_NAME, 'price_color.align-right')
+    # BASKET_LINK = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a')
+    # BASKET_ITEM_PRICE = (By.CLASS_NAME, 'total.align-right')
+    # ITEM_PRICE = (By.CLASS_NAME, 'price_color.align-right')
     
     #! Цена товара в корзине
     BASKET_PRICE_ITEM = (By.XPATH, '//*[@id="basket_formset"]/div/div/div[4]/p')
@@ -56,10 +56,8 @@ class Basket():
     # Элемент из бредкрамбов с которым будем соотносить основной тайтл страницы
     BREADCRAMB_TITLE = (By.CSS_SELECTOR, '#default > div.container-fluid.page > div > ul > li.active')
 
-    # Элемент корзины в шапке, будем сравнивать с ним цену корзины / Пауза
-
     #! Сообщение о добавлении товара с тайтлом
     ITEM_ADD_TO_BASKE_NEW = (By.CSS_SELECTOR, '#messages > div:nth-child(1) > div > strong')
 
-    #
+    # Цена корзины на продуктовой странице в сообщении
     BASKET_ON_PPP = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs')

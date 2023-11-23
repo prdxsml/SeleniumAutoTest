@@ -2,8 +2,6 @@ from pages.main_page import MainPage
 from pages.product_page import ProductPage
 import time
 
-
-
 # def test_guest_can_add_product_to_basket(browser):
 #     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
 #     page = ProductPage(browser, link)
@@ -24,7 +22,6 @@ import time
 #     page.item_on_basket()
 #     page.correct_title_on_message()
 #     page.correct_price_on_basket()
-
 
 # Тест перехода по линке на странице. Переход между страницами. Тут мы и опишем проверки на правильность корзины.
 # def test_basket_link(browser):
@@ -50,17 +47,19 @@ import time
 #     basket_page.basket_all_price()
 
 def test_what_in_title_and_price(browser):
+    # Сюда подставляем линк, проверяемой страницы
     link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    # Указывем какие методы, фикстуры и с какой страницы используем
     page = ProductPage(browser, link)
+    # Метод открытия страниц
     page.open()
+    # Метод клика по кнопке и подстановки решения
     page.click_on_button()
+    # Ждем сервера
     time.sleep(10)
-    # page.what_in_title_and_price()
+    # Метод проверки и выгребания тайтла со страницы. Ипользуется сравнение внутри
     page.title_equally_title_on_message()
+    # Метод проверки цены и выгребания со страницы. Ипользуется сравнение внутри
     page.price_equally_price_on_basket()
-    # page.basket_link()
-    # basket_page = ProductPage(browser, browser.current_url)
-    # basket_page.should_be_basket_url()
-    # basket_page.price_equally_price_on_basket()
 
 
