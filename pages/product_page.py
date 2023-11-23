@@ -37,38 +37,6 @@ class ProductPage(BasePage):
     def should_be_basket_url(self):
         assert "basket" in self.url, 'сообщение об ошибке'
 
-    # def basket_all_price(self):
-    #     assert self.is_element_present(*Basket.BASKET_ITEM_PRICE), 'Элемент корзиночной цены проебан'
-    #     assert self.is_element_present(*Basket.ITEM_PRICE), 'Элемент цены товара проебан'
-
-    #     basket_item_price_el = self.browser.find_element(*Basket.BASKET_ITEM_PRICE)
-    #     item_price_el = self.browser.find_element(*Basket.ITEM_PRICE)
-    #     basket_item_price = basket_item_price_el.text
-    #     item_price = item_price_el.text
-
-    #     assert basket_item_price == item_price, 'Ошибка нахуй'
-
-    def what_in_title_and_price(self):
-        #? Функция показывает что лежит в заголовке / Работает
-        # x = self.browser.find_element(*Basket.TITLE_TOVARA)
-        # x_text = x.text
-        # print('x_text', x_text)
-
-        #? Функция показывает что лежит в цене / Работает
-        # y = self.browser.find_element(*Basket.PRICE_ADD_TO_BASKET)
-        # y_text = y.text
-        # print('y_text', y_text)
-
-        # Функция поиска тайтла в бредкрамбах / Работает / Не используем
-        # z = self.browser.find_element(*Basket.BREADCRAMB_TITLE)
-        # z_text = z.text
-        # print('z_text', z_text)
-
-        #? Функция показывает, что лежит в месаге о добавлении товара / Работает
-        m = self.browser.find_element(*Basket.ITEM_ADD_TO_BASKE_NEW)
-        m_text = m.text
-        print('m_text', m_text)
-
     def title_equally_title_on_message(self):
         # 1. Основной тайтл для сравнения
         product_page_title = self.browser.find_element(*Basket.TITLE_TOVARA)
