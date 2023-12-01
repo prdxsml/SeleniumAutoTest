@@ -2,7 +2,6 @@ from .base_page import BasePage
 from .locators import Basket
 import time
 
-
 class ProductPage(BasePage):
 
     # Проверка наличия кнопки

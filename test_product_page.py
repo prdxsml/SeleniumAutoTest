@@ -1,6 +1,7 @@
 from pages.main_page import MainPage
 from pages.product_page import ProductPage
 import time
+import pytest
 
 # def test_guest_can_add_product_to_basket(browser):
 #     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
@@ -46,9 +47,25 @@ import time
 #     # и они будут не равны, но похуй (допилим позже), задача стояла проверить цену одного товара.
 #     basket_page.basket_all_price()
 
-def test_what_in_title_and_price(browser):
+
+# @pytest.mark.parametrize('promo_offer', ["0","1", "3", "4", "5", "6", "7", "8", "9"])
+# def test_guest_can_add_product_to_basket(browser, promo_offer):
+#     link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{promo_offer}"
+
+
+
+# product_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+# urls = [f"{product_link}/?promo=offer{no}" for no in range(10)]
+
+
+
+# Чтобы скормить демону пулл из документов надо будет разбить ссылки на строки и написать алгоритм подстановки и проверки
+# его в цикле(вероятно). Надо подумать над реализацией.
+@pytest.mark.parametrize('promo_offer', ["0","1", "3", "4", "5", "6", "7", "8", "9"])
+
+def test_what_in_title_and_price(browser, promo_offer):
     # Сюда подставляем линк, проверяемой страницы
-    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{promo_offer}"
     # Указывем какие методы, фикстуры и с какой страницы используем
     page = ProductPage(browser, link)
     # Метод открытия страниц
