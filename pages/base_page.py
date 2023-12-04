@@ -5,6 +5,7 @@ import math
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from .locators import BasePageLocators
 
 # ! Базовая страница от которой наследуются все остальные классы.
 # ! Описываются вспомогательные методы для работы с драйвером
@@ -15,6 +16,13 @@ class BasePage():
         self.browser = browser
         self.url = url
         self.browser.implicitly_wait(timeout)
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+    
+    def should_be_login_link(self):
+        assert self.browser.find_element(*BasePageLocators.LOGIN_LINK), "Линк логина существует"
     
     def open(self):
         self.browser.get(self.url)
