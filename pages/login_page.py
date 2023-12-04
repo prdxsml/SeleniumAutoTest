@@ -68,7 +68,7 @@ class LoginPage(BasePage):
         # Находим подтверждение пароля
         password_repeat = self.browser.find_element(*BasePageLocators.PASS_INPUT_REPEAT)
         # Повторяем ввод тестового пароля
-        password_repeat.send_keys('password')
+        password_repeat.send_keys(password)
         # Находим кнопку регистрации пользователя
         registation_button = self.browser.find_element(*BasePageLocators.REG_BTN)
         registation_button.click()
