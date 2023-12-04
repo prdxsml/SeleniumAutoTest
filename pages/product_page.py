@@ -1,4 +1,3 @@
-from typing import Self
 from .base_page import BasePage
 from .locators import Basket
 import time
@@ -32,9 +31,9 @@ class ProductPage(BasePage):
     def basket_link(self):
         link = self.browser.find_element(*Basket.BASKET_LINK)
         link.click()
-
-    # Метод проверки урла на содержание нужного слова в адресе
-    def should_be_basket_url(self):
+    
+    def guest_cant_see_success_message_after_adding_product_to_basket(self):
+        assert self.is_not_element_present(*Basket.POP_UP_TITLE), "Success message is presented, but should not be"
         assert "basket" in self.url, 'сообщение об ошибке'
 
     def title_equally_title_on_message(self):
@@ -66,5 +65,3 @@ class ProductPage(BasePage):
 
     def guest_cant_see_success_message_after_adding_product_to_basket(self):
         assert self.is_not_element_present(*Basket.POP_UP_TITLE), "Success message is presented, but should not be"
-    
-    
