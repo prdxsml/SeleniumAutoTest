@@ -61,3 +61,5 @@ class Basket():
 
     # Цена корзины на продуктовой странице в сообщении
     BASKET_ON_PPP = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs')
+
+    POP_UP_TITLE = (By.CSS_SELECTOR, '#messages > div:nth-child(1)')

@@ -80,3 +80,9 @@ def test_what_in_title_and_price(browser, promo_offer):
     page.price_equally_price_on_basket()
 
 
+
+
+
+# def test_guest_cant_see_success_message:
+
+# def test_message_disappeared_after_adding_product_to_basket:
