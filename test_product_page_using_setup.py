@@ -37,18 +37,16 @@ class TestUserAddToBasketFromProductPage():
         email = str(time.time()) + "@fakemail.org"
         password = 'humph-misuse-wing'
         page.register_new_user(email,password)
-        time.sleep(20)
+        time.sleep(10)
         page.should_be_authorized_user()
 
-    def test_user_can_add_product_to_basket(self, browser):
+    def test_guest_cant_see_success_message(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
         page.open()
-        page.click_on_button()
-        page.guest_cant_see_success_message_after_adding_product_to_basket()
+        page.user_cant_see_success_message_after_adding_product_to_basket()
 
-    def test_user_cant_see_success_message(self, browser):
+    def test_guest_can_add_product_to_basket(self,browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
         page.open()
-        page.guest_cant_see_success_message_after_adding_product_to_basket()

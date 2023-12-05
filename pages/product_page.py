@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import Basket
+from .locators import NetativeLocators
 import time
 
 class ProductPage(BasePage):
@@ -63,5 +64,12 @@ class ProductPage(BasePage):
         if f'{product_page_price_text}' in basket_page_price_text:
             print('Цена товара на странице продукта и корзине: СОВПАДАЮТ')
 
-    def guest_cant_see_success_message_after_adding_product_to_basket(self):
-        assert self.is_not_element_present(*Basket.POP_UP_TITLE), "Success message is presented, but should not be"
+    # def guest_cant_see_success_message_after_adding_product_to_basket(self):
+    #     assert self.is_not_element_present(*Basket.POP_UP_TITLE), "Success message is presented, but should not be"
+    
+    def netative_button_click(self):
+        button = self.browser.find_element(*NetativeLocators.NEGGATIVE_TEST_BUTTON)
+        button.click()
+
+    def user_cant_see_success_message_after_adding_product_to_basket(self):
+        assert self.is_not_element_present(*NetativeLocators.NEGGATIVE_POP_UP_ALERT), "Success message is presented, but should not be"
