@@ -10,33 +10,33 @@ import math
 class BasePage():
 
 
-    # Добавляем метод-конструтор. Передаем в него экземпляр драйвера и url-адрес. Поставлено неявное ожидание в 10 секунд
-    def __init__(self, browser, url, timeout=5):
+    #? Добавляем метод-конструтор. Передаем в него экземпляр драйвера и url-адрес. Поставлено неявное ожидание в 10 секунд
+    def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
         # Неявное ожидание
         self.browser.implicitly_wait(timeout)
 
 
-    # Метод открытия страницы
+    #? Метод открытия страницы
     def open(self):
         self.browser.get(self.url)
 
-
+    #? Метод перехода по ссылке
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
-    # Переход на страницу корзины
+    #! Переход на страницу корзины
     def go_to_basket_page(self):
         link = self.is_element_present(*BasketPageLocator.BASKET_LINK,)
         link.click()
 
-
+    #? Метод проверки наличия ссылки, которая ведет на логин
     def should_be_login_link(self):
-        assert self.browser.find_element(*BasePageLocators.LOGIN_LINK), "Линк логина существует"
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Линк логина существует"
 
-
+    # Метод проверки наличия элемента
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
