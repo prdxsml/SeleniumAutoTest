@@ -9,14 +9,16 @@ import math
 
 class BasePage():
 
-    # Добавляем метод-конструтор. Передаем в него экземпляр драйвера и url-адрес
-    def __init__(self, browser, url, timeout=20):
+
+    # Добавляем метод-конструтор. Передаем в него экземпляр драйвера и url-адрес. Поставлено неявное ожидание в 10 секунд
+    def __init__(self, browser, url, timeout=5):
         self.browser = browser
         self.url = url
         # Неявное ожидание
         self.browser.implicitly_wait(timeout)
 
 
+    # Метод открытия страницы
     def open(self):
         self.browser.get(self.url)
 
