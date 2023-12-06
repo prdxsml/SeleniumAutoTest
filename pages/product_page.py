@@ -55,7 +55,7 @@ class ProductPage(BasePage):
             print('Цена товара на странице продукта и корзине: СОВПАДАЮТ')
 
     # def guest_cant_see_success_message_after_adding_product_to_basket(self):
-    #     assert self.is_not_element_present(*Basket.POP_UP_TITLE), "Success message is presented, but should not be"
+    #     assert self.is_not_element_present(*BasketPageLocators.POP_UP_TITLE), "Success message is presented, but should not be"
     
     # def netative_button_click(self):
     #     button = self.browser.find_element(*NetativeLocators.NEGGATIVE_TEST_BUTTON)
