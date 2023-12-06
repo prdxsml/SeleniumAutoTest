@@ -1,7 +1,6 @@
 from .base_page import BasePage
 from .locators import Basket
 from .locators import NetativeLocators
-import time
 
 class ProductPage(BasePage):
 

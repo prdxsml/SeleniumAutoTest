@@ -1,4 +1,3 @@
-from pickle import TRUE
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import math

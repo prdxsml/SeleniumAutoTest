@@ -19,16 +19,6 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
 @pytest.mark.reg
 class TestUserAddToBasketFromProductPage():
 
-    # @pytest.fixture(scope="function", autouse=True)
-    # def setup(self, browser):
-    #     link = "https://selenium1py.pythonanywhere.com/ru/accounts/login/"
-    #     page = LoginPage(browser, link)
-    #     page.open()
-    #     time.sleep(10)
-    #     page.register_new_user()
-    #     time.sleep(10)
-    #     page.should_be_authorized_user()
-
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         link = "https://selenium1py.pythonanywhere.com/ru/accounts/login/"

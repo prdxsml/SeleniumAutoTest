@@ -1,8 +1,6 @@
 from selenium.webdriver.common.by import By
-from selenium import webdriver
 
 # ! Страница локаторов. Опеределяем переменные и переиспользуем в проекте.
-
 
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
