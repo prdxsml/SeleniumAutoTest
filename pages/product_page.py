@@ -54,12 +54,20 @@ class ProductPage(BasePage):
         if f'{product_page_price_text}' in basket_page_price_text:
             print('Цена товара на странице продукта и корзине: СОВПАДАЮТ')
 
-    # def guest_cant_see_success_message_after_adding_product_to_basket(self):
-    #     assert self.is_not_element_present(*BasketPageLocators.POP_UP_TITLE), "Success message is presented, but should not be"
-    
-    # def netative_button_click(self):
-    #     button = self.browser.find_element(*NetativeLocators.NEGGATIVE_TEST_BUTTON)
-    #     button.click()
 
-    # def user_cant_see_success_message_after_adding_product_to_basket(self):
-    #     assert self.is_not_element_present(*NetativeLocators.NEGGATIVE_POP_UP_ALERT), "Success message is presented, but should not be"
+    def guest_cant_see_success_message_after_adding_product_to_basket(self):
+        # assert self.is_not_element_present(*BasketPageLocators.POP_UP_TITLE), "Success message is presented, but should not be"
+        basket_button = self.is_element_present(*NetativeLocators.NEGGATIVE_TEST_BUTTON)
+        basket_button.click()
+        assert self.is_not_element_present(*NetativeLocators.SUCCESS_MESSAGE), "Сообщение существует, это ошибка"
+
+
+    def test_guest_cant_see_success_message(self):
+        button = self.is_not_element_present(*NetativeLocators.NEGGATIVE_TEST_BUTTON)
+
+
+    def test_message_disappeared_after_adding_product_to_basket(self):
+        # assert self.is_disappeared(*NetativeLocators.NEGGATIVE_POP_UP_ALERT), "Success message is presented, but should not be"
+        basket_button = self.is_element_present(*NetativeLocators.NEGGATIVE_TEST_BUTTON)
+        basket_button.click()
+        assert self.is_disappeared(*NetativeLocators.SUCCESS_MESSAGE), "Сообщение существует, это ошибка"

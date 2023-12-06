@@ -46,7 +46,8 @@ class BasePageLocators():
 
 class NetativeLocators():
     NEGGATIVE_TEST_BUTTON = (By.CLASS_NAME, 'btn.btn-lg.btn-primary.btn-add-to-basket')
-    NEGGATIVE_POP_UP_ALERT = (By.XPATH, '//*[@id="messages"]/div[1]')
+    # NEGGATIVE_POP_UP_ALERT = (By.XPATH, '//*[@id="messages"]/div[1]')
+    SUCCESS_MESSAGE=(By.CSS_SELECTOR,".alert-success")
 
 
 class BasketPageLocator():

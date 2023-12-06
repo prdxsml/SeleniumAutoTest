@@ -80,5 +80,42 @@ class TestUserAddToBasketFromProductPage():
         page = ProductPage(browser, link)
         page.open()
 
-    def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
-        pass
+
+
+# Негативные тесты
+"""
+1. Открываем страницу товара
+2. Добавляем товар в корзину
+3. Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+"""
+@pytest.mark.negative_test
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.guest_cant_see_success_message_after_adding_product_to_basket()
+
+""" 
+1. Открываем страницу товара
+2. Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+"""
+@pytest.mark.negative_test
+def test_guest_cant_see_success_message(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.test_guest_cant_see_success_message()
+
+
+"""
+1. Открываем страницу товара
+2. Добавляем товар в корзину
+3. Проверяем, что нет сообщения об успехе с помощью is_disappeared
+"""
+@pytest.mark.negative_test
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.test_message_disappeared_after_adding_product_to_basket()
+
