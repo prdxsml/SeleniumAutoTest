@@ -69,7 +69,7 @@ class BasePage():
         return False
 
 
-    # Метод решения для вставки в алерт
+    # Метод решения для вставки в алерт. Если не будет работать, добавь ожиданий через time.sleep(10), где 10 - нужное число в секундах
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]

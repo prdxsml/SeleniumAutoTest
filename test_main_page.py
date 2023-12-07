@@ -13,8 +13,7 @@ import pytest
 подсобывать в параметр page = нужный класс и через него проверять методами, описанными в этом классе
 """
 
-#? Тест проверки перехода между страницами - ok
-# @pytest.mark.test_zero
+# Тест проверки перехода между страницами - ok
 def test_guest_can_go_to_login_page(browser: WebDriver):
     # Стартовый линк
     link = "http://selenium1py.pythonanywhere.com"
@@ -26,7 +25,7 @@ def test_guest_can_go_to_login_page(browser: WebDriver):
     page.go_to_login_page()
 
 
-#? Тест проверки наличия ссылки, которая ведет на логин - ok
+# Тест проверки наличия ссылки, которая ведет на логин - ok
 def test_guest_should_see_login_link(browser: WebDriver):
     # Указываем на каком линке будем проверять
     link = "http://selenium1py.pythonanywhere.com"
@@ -39,28 +38,27 @@ def test_guest_should_see_login_link(browser: WebDriver):
 
 
 def test_should_be_login_url(browser: WebDriver):
-    link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
+    link = "http://selenium1py.pythonanywhere.com/accounts/login/"
     page = LoginPage(browser, link)
     page.open()
     page.should_be_login_url()
 
 
 def test_should_be_login_form(browser: WebDriver):
-    link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
+    link = "http://selenium1py.pythonanywhere.com/accounts/login/"
     page = LoginPage(browser, link)
     page.open()
     page.should_be_login_form()
 
 
 def test_should_be_register_form(browser: WebDriver):
-    link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
+    link = "http://selenium1py.pythonanywhere.com/accounts/login/"
     page = LoginPage(browser, link)
     page.open()
     page.should_be_register_form()
 
 
 # Тест перехода в корзину под гостем
-@pytest.mark.test_zero
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser: WebDriver):
     link = "http://selenium1py.pythonanywhere.com/"
     page = BasketPage(browser, link)
