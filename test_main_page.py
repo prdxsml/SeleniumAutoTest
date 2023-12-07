@@ -1,3 +1,4 @@
+from pages.base_page import BasePage
 from pages.main_page import MainPage
 from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
@@ -12,6 +13,7 @@ import pytest
 """
 
 #? Тест проверки перехода между страницами - ok
+# @pytest.mark.test_zero
 def test_guest_can_go_to_login_page(browser):
     # Стартовый линк
     link = "http://selenium1py.pythonanywhere.com"
@@ -61,13 +63,17 @@ def test_should_be_register_form(browser):
 3. Ожидаем, что в корзине нет товаров
 4. Ожидаем, что есть текст о том что корзина пуста
 """
-@pytest.mark.xfail #! пока падает
+
+
+
+
+@pytest.mark.test_zero
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
-    link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
+    link = "http://selenium1py.pythonanywhere.com/"
     page = BasketPage(browser, link)
-    page.open
-    # time.sleep(15)
-    page.go_to_basket_page()
+    page.open()
+    page.button_basket()
+
     # page.guest_basket_button_exists()
     # page.guest_click_basket_button()
     # page.guest_basket_clear()

@@ -3,8 +3,10 @@ from selenium.webdriver.common.by import By
 # Страница локаторов. Опеределяем переменные и переиспользуем в проекте.
 
 # Класс локаторов для основной страницы
-class MainPageLocators():
+class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
+    # Локатор для гостя. Кнопка перехода в корзину в шапке сайта
+    GUEST_BASKET_BUTTON = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a')
 
 
 # Класс локаторов для страницы логина
@@ -32,7 +34,10 @@ class BasketPageLocators():
     POP_UP_TITLE = (By.XPATH, '//*[@id="messages"]/div[12]')
 
 
-# Локаторы для проверок логина, регистрации, поломанной линки
+"""
+Локаторы для проверок логина, регистрации, поломанной линки.
+Общие локаторы для элементов, которые присутствуют на всех страницах
+"""
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
     # Для отслеживания правильной работы. Сломанный линк
