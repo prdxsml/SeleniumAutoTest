@@ -16,3 +16,7 @@ pytest -v --tb=line --language=en -m need_review test_product_page.py
 
 Если что-то пойдет не так, добавляй time.sleep - тестируемый сервер не стабильный!
 ![time.sleep(3000)](img/time_sleep_3000.jpg)
+
+
+
+
