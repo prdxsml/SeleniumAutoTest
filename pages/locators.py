@@ -59,3 +59,6 @@ class BasketPageLocator():
     BASKET_LINK = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a')
     BASKET_BUTTON = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a')
     TITLE_BASKET_CLEAR = (By.CSS_SELECTOR, '#content_inner > p')
+    # Элемент появляется, когда в корзине есть товары
+    BASKET_ITEM_WRAPPER = (By.CLASS_NAME,'basket-title.hidden-xs')
+    TEXT_IN_BASKET = (By.CSS_SELECTOR, "#content_inner > p")
