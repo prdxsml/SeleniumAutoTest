@@ -1,5 +1,7 @@
+from pages.base_page import BasePage
 from pages.login_page import LoginPage
 from pages.product_page import ProductPage
+from pages.basket_page import BasketPage
 import time
 import pytest
 
@@ -10,15 +12,14 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.open()
     page.should_be_login_link()
 
-
-
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
 
-
+@pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser):
     # Сюда подставляем линк, проверяемой страницы
     link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
@@ -56,7 +57,7 @@ def test_guest_can_add_product_to_basket(browser, promo_offer):
     page.price_equally_price_on_basket()
 
 
-@pytest.mark.reg
+@pytest.mark.need_review
 class TestUserAddToBasketFromProductPage():
 
     @pytest.fixture(scope="function", autouse=True)
@@ -70,17 +71,16 @@ class TestUserAddToBasketFromProductPage():
         time.sleep(10)
         page.should_be_authorized_user()
 
-    def test_guest_cant_see_success_message(self, browser):
+    def test_user_cant_see_success_message(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
         page.open()
         page.user_cant_see_success_message_after_adding_product_to_basket()
 
-    def test_guest_can_add_product_to_basket(self,browser):
+    def test_user_can_add_product_to_basket(self,browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
         page.open()
-
 
 
 # Негативные тесты
@@ -96,6 +96,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page = ProductPage(browser, link)
     page.open()
     page.guest_cant_see_success_message_after_adding_product_to_basket()
+
 
 """ 
 1. Открываем страницу товара
@@ -123,5 +124,35 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page.test_message_disappeared_after_adding_product_to_basket()
 
 
+# Тест показывает, что в корзине пусто
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
-    pass
+    link = "https://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/"
+    page = BasketPage(browser, link)
+    page.open()
+    page.button_basket()
+    time.sleep(10)
+    page.button_basket_click()
+    time.sleep(10)
+    page.check_is_basket_clear()
+    time.sleep(10)
+    page.text_is_basket_clear()
+    time.sleep(10)
+
+
+# Тест показывает, что в корзине есть товар
+# Добавлены таймауты по 10 секунд, потому что сервер не всегда четко отрабатывает
+@pytest.mark.test_zero
+def test_guest_cant_see_product_in_basket_opened_from_product_page_negative(browser):
+    link = "https://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/"
+    page = BasketPage(browser, link)
+    page.open()
+    page.add_to_basket()
+    time.sleep(10)
+    page.button_basket_click()
+    time.sleep(10)
+    page.check_is_basket_clear_negative()
+    time.sleep(10)
+    page.text_is_basket_clear_negative()
+    time.sleep(10)
+

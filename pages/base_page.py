@@ -9,7 +9,6 @@ import math
 
 class BasePage():
 
-
     # Добавляем метод-конструтор. Передаем в него экземпляр драйвера и url-адрес. Поставлено неявное ожидание в 10 секунд
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -22,6 +21,7 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
 
+
     # Метод перехода по ссылке
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
@@ -30,14 +30,17 @@ class BasePage():
         # alert = self.browser.switch_to.alert
         # alert.accept()
 
-    #! Переход на страницу корзины
+
+    # Переход на страницу корзины
     def go_to_basket_page(self):
         link = self.is_element_present(*BasketPageLocator.BASKET_LINK,)
         link.click()
 
+
     # Метод проверки наличия ссылки, которая ведет на логин
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Линк логина существует"
+
 
     # Метод проверки наличия элемента
     def is_element_present(self, how, what):
@@ -47,6 +50,7 @@ class BasePage():
             return False
         return True
 
+
     # Метод ожидает отсутствие элемента на странице
     def is_not_element_present(self, how, what, timeout=4):
         try:
@@ -55,6 +59,7 @@ class BasePage():
             return True
         return False
 
+
     # Метод ожидает пока элемент исчезнет
     def is_disappeared(self, how, what, timeout=4):
         try:
@@ -62,6 +67,7 @@ class BasePage():
         except TimeoutException:
             return True
         return False
+
 
     # Метод решения для вставки в алерт
     def solve_quiz_and_get_code(self):

@@ -1,3 +1,4 @@
+from selenium.webdriver.chrome.webdriver import WebDriver
 from pages.base_page import BasePage
 from pages.main_page import MainPage
 from pages.basket_page import BasketPage
@@ -14,7 +15,7 @@ import pytest
 
 #? Тест проверки перехода между страницами - ok
 # @pytest.mark.test_zero
-def test_guest_can_go_to_login_page(browser):
+def test_guest_can_go_to_login_page(browser: WebDriver):
     # Стартовый линк
     link = "http://selenium1py.pythonanywhere.com"
     # Инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес 
@@ -26,7 +27,7 @@ def test_guest_can_go_to_login_page(browser):
 
 
 #? Тест проверки наличия ссылки, которая ведет на логин - ok
-def test_guest_should_see_login_link(browser):
+def test_guest_should_see_login_link(browser: WebDriver):
     # Указываем на каком линке будем проверять
     link = "http://selenium1py.pythonanywhere.com"
     # Указываем через какой класс и какими методами будет проводить тест
@@ -37,32 +38,30 @@ def test_guest_should_see_login_link(browser):
     page.go_to_login_page()
 
 
-def test_should_be_login_url(browser):
+def test_should_be_login_url(browser: WebDriver):
     link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
     page = LoginPage(browser, link)
     page.open()
     page.should_be_login_url()
 
 
-def test_should_be_login_form(browser):
+def test_should_be_login_form(browser: WebDriver):
     link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
     page = LoginPage(browser, link)
     page.open()
     page.should_be_login_form()
 
 
-def test_should_be_register_form(browser):
+def test_should_be_register_form(browser: WebDriver):
     link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
     page = LoginPage(browser, link)
     page.open()
     page.should_be_register_form()
 
 
-
-
 # Тест перехода в корзину под гостем
 @pytest.mark.test_zero
-def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+def test_guest_cant_see_product_in_basket_opened_from_main_page(browser: WebDriver):
     link = "http://selenium1py.pythonanywhere.com/"
     page = BasketPage(browser, link)
     page.open()

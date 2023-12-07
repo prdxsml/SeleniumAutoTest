@@ -1,3 +1,4 @@
+from os import link
 from .base_page import BasePage
 from .locators import BasketPageLocators
 from .locators import NetativeLocators
@@ -8,6 +9,10 @@ class ProductPage(BasePage):
     def button(self):
         assert self.browser.find_element(*BasketPageLocators.ADD_BASKET_BUTTON), "Кнопка не найдена"
 
+
+    # Метод открытия страницы
+    def open(self):
+        self.browser.get(self.url)
 
     # Проверка кликабельности кнопки и автоподстановка уровнения
     def click_on_button(self):
@@ -55,11 +60,10 @@ class ProductPage(BasePage):
             print('Цена товара на странице продукта и корзине: СОВПАДАЮТ')
 
 
-    def guest_cant_see_success_message_after_adding_product_to_basket(self):
-        # assert self.is_not_element_present(*BasketPageLocators.POP_UP_TITLE), "Success message is presented, but should not be"
-        basket_button = self.is_element_present(*NetativeLocators.NEGGATIVE_TEST_BUTTON)
-        basket_button.click()
-        assert self.is_not_element_present(*NetativeLocators.SUCCESS_MESSAGE), "Сообщение существует, это ошибка"
+    def user_cant_see_success_message_after_adding_product_to_basket(self):
+        link = self.browser.find_element(*NetativeLocators.NEGGATIVE_TEST_BUTTON)
+        link.click()
+        assert self.is_element_present(*NetativeLocators.SUCCESS_MESSAGE), "Сообщение существует, это ошибка"
 
 
     def test_guest_cant_see_success_message(self):

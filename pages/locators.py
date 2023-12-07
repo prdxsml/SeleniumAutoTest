@@ -62,3 +62,5 @@ class BasketPageLocator():
     # Элемент появляется, когда в корзине есть товары
     BASKET_ITEM_WRAPPER = (By.CLASS_NAME,'basket-title.hidden-xs')
     TEXT_IN_BASKET = (By.CSS_SELECTOR, "#content_inner > p")
+    # Кнопка на странице товара, для отрицательного теста
+    ADD_TO_BASKET = (By.CLASS_NAME, 'btn.btn-lg.btn-primary.btn-add-to-basket')

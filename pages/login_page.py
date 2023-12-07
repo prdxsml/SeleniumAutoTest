@@ -3,7 +3,6 @@ from .locators import LoginPageLocators
 from .locators import BasePageLocators
 
 # Реализация методов проверок для страницы LoginPage
-
 # Класс для страницы LoginPage(наследуется от BasePage)
 class LoginPage(BasePage):
 

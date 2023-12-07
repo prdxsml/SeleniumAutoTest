@@ -1,38 +1,16 @@
+from os import link
 from .base_page import BasePage
 from .locators import BasketPageLocator
 from .locators import MainPageLocators
 
 
-
 class BasketPage(BasePage):
-
-    # Проверим существование кнопки с переходом в корзину
-    def guest_basket_button_exists(self):
-        assert self.is_element_present(*BasketPageLocator.BASKET_BUTTON), 'Кнопки перехода в корзину не обнаружено'
-        basket_button = self.is_element_present(*BasketPageLocator.BASKET_BUTTON)
-        basket_button.click()
-    
-    # Клик на кнопке Корзина
-    def guest_click_basket_button(self):
-        basket_button = self.is_element_present(*BasketPageLocator.BASKET_BUTTON)
-        basket_button.click()
-    
-    # Проверка сопоставление текста на странице Корзина. Убедимся, что Корзина пуста.
-    # def guest_basket_clear(self):
-    #     guest_should_see = self.is_element_present(*BasketPageLocator.TITLE_BASKET_CLEAR)
-    #     assert 'Ваша корзина пуста' in guest_should_see.text, 'Ошибка. Корзина не пуста'
-    #     print('В корзине нет товаров')
-
-    # Проверка для 1 теста в main_page
-    def guest_cant_see_product_in_basket_opened_from_main_page(self):
-        guest_basket_button = self.is_element_present(*MainPageLocators.GUEST_BASKET_BUTTON)
-        guest_basket_button.click()
-
 
     # Проверка наличия кнопки
     def button_basket(self):
-        assert self.is_element_present(*MainPageLocators.GUEST_BASKET_BUTTON), "Кнопки нет"
-    
+        assert self.is_element_present(*MainPageLocators.GUEST_BASKET_BUTTON), "Ошибка. Элемент должен отображаться"
+
+
     # Переход по ссылке из кнопки
     def button_basket_click(self):
         """
@@ -42,8 +20,27 @@ class BasketPage(BasePage):
         link = self.browser.find_element(*MainPageLocators.GUEST_BASKET_BUTTON)
         link.click()
 
-    def check_is_basket_clear(self):
-        assert self.is_not_element_present(*BasketPageLocator.BASKET_ITEM_WRAPPER), "Элемент есть,"
 
+    # Проверка, что элемент корзины отсутствует
+    def check_is_basket_clear(self):
+        assert self.is_not_element_present(*BasketPageLocator.BASKET_ITEM_WRAPPER), "Элемент есть, ошибка. Элемент не должен отображаться"
+
+
+    # Проверка, что страница корзины содержит надпись
     def text_is_basket_clear(self):
-        assert self.browser.find_element(*BasketPageLocator.TEXT_IN_BASKET), "Нет"
+        assert self.browser.find_element(*BasketPageLocator.TEXT_IN_BASKET), "Элемента нет, ошибка. Элемент должен отображаться"
+
+
+    # Метод доавления в корзину товары
+    def add_to_basket(self):
+        link = self.browser.find_element(*BasketPageLocator.ADD_TO_BASKET)
+        link.click()
+
+
+    def check_is_basket_clear_negative(self):
+        assert self.is_element_present(*BasketPageLocator.BASKET_ITEM_WRAPPER), "Элемента нет, ошибка. Элемент должен отображаться"
+
+
+    # Проверка, что страница корзины содержит надпись
+    def text_is_basket_clear_negative(self):
+        assert self.is_not_element_present(*BasketPageLocator.TEXT_IN_BASKET), "Элемента есть, ошибка. Элемент не должен отображаться"
