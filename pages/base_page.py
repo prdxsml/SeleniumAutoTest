@@ -10,7 +10,7 @@ import math
 class BasePage():
 
 
-    #? Добавляем метод-конструтор. Передаем в него экземпляр драйвера и url-адрес. Поставлено неявное ожидание в 10 секунд
+    # Добавляем метод-конструтор. Передаем в него экземпляр драйвера и url-адрес. Поставлено неявное ожидание в 10 секунд
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
@@ -18,11 +18,11 @@ class BasePage():
         self.browser.implicitly_wait(timeout)
 
 
-    #? Метод открытия страницы
+    # Метод открытия страницы
     def open(self):
         self.browser.get(self.url)
 
-    #? Метод перехода по ссылке
+    # Метод перехода по ссылке
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
@@ -35,7 +35,7 @@ class BasePage():
         link = self.is_element_present(*BasketPageLocator.BASKET_LINK,)
         link.click()
 
-    #? Метод проверки наличия ссылки, которая ведет на логин
+    # Метод проверки наличия ссылки, которая ведет на логин
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Линк логина существует"
 
@@ -47,7 +47,7 @@ class BasePage():
             return False
         return True
 
-
+    # Метод ожидает отсутствие элемента на странице
     def is_not_element_present(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
@@ -55,7 +55,7 @@ class BasePage():
             return True
         return False
 
-
+    # Метод ожидает пока элемент исчезнет
     def is_disappeared(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException).until_not(EC.presence_of_element_located((how, what)))
@@ -63,7 +63,7 @@ class BasePage():
             return True
         return False
 
-
+    # Метод решения для вставки в алерт
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]

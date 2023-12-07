@@ -35,7 +35,8 @@ class BasketPageLocators():
 # Локаторы для проверок логина, регистрации, поломанной линки
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
-    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, '#login_link_inc')
+    # Для отслеживания правильной работы. Сломанный линк
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, '#login_link_bad')
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
     # Локаторы для регистрации
     EMAIL_INPUT = (By.ID,'id_registration-email')
@@ -46,7 +47,6 @@ class BasePageLocators():
 
 class NetativeLocators():
     NEGGATIVE_TEST_BUTTON = (By.CLASS_NAME, 'btn.btn-lg.btn-primary.btn-add-to-basket')
-    # NEGGATIVE_POP_UP_ALERT = (By.XPATH, '//*[@id="messages"]/div[1]')
     SUCCESS_MESSAGE=(By.CSS_SELECTOR,".alert-success")
 
 
