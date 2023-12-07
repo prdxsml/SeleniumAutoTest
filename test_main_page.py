@@ -73,6 +73,9 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page = BasketPage(browser, link)
     page.open()
     page.button_basket()
+    time.sleep(10)
+    page.go_to_basket_page()
+    time.sleep(10)
 
     # page.guest_basket_button_exists()
     # page.guest_click_basket_button()

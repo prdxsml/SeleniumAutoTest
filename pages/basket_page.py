@@ -36,5 +36,10 @@ class BasketPage(BasePage):
         # alert = self.browser.switch_to.alert
         # alert.accept()
 
+    # Проверка наличия кнопки
     def button_basket(self):
         assert self.is_element_present(*MainPageLocators.GUEST_BASKET_BUTTON), "Кнопки нет"
+
+    def button_basket_click(self):
+        link = self.is_element_present(*MainPageLocators.GUEST_BASKET_BUTTON)
+        link.click()
