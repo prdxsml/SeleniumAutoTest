@@ -71,7 +71,6 @@ class ProductPage(BasePage):
 
 
     def test_message_disappeared_after_adding_product_to_basket(self):
-        # assert self.is_disappeared(*NetativeLocators.NEGGATIVE_POP_UP_ALERT), "Success message is presented, but should not be"
         basket_button = self.is_element_present(*NetativeLocators.NEGGATIVE_TEST_BUTTON)
         basket_button.click()
         assert self.is_disappeared(*NetativeLocators.SUCCESS_MESSAGE), "Сообщение существует, это ошибка"
